@@ -134,7 +134,8 @@ const TextInput: React.AbstractComponent<
     secureTextEntry = false,
     selection,
     selectTextOnFocus,
-    spellCheck
+    spellCheck,
+    showSoftInputOnFocus
   } = props;
 
   let type;
@@ -163,6 +164,10 @@ const TextInput: React.AbstractComponent<
       break;
     default:
       type = 'text';
+  }
+
+  if (!showSoftInputOnFocus) {
+    inputMode = 'none';
   }
 
   if (secureTextEntry) {
